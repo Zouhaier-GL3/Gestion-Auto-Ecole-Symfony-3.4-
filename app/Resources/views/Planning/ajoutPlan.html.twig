@@ -1,0 +1,84 @@
+{% extends 'auth/show.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body1 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ajout Plan</title>
+
+    <style>
+        .page {
+            width: 1024px;
+            position: relative;
+            left: 25%;
+            justify-content: center;
+            padding-right: 10%;
+        }
+        button.btn.btn-primary.btn-user.btn-block {
+            position: relative;
+            top: -38px;
+            float: right;
+            display: block;
+            left: -38%;
+            width: 100px;
+        }
+        h1{ color: #d62516}
+
+        [type="date"] {
+            background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+        }
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+
+
+        }
+    </style>
+</head>
+<body >
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ajout Plannig</h6>
+    </div>
+<div class="page">
+
+    <p><form action="" method="post">
+
+
+        <div class="form-group row">
+            <div class="">
+                {{ form_row(form.date, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.Candidat, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_row(form.Moniteur, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.Voiture, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+
+        <div class="" >
+            <button type="submit" class="btn btn-primary btn-user btn-block ">
+                <i class=""></i> Register
+            </button>
+        </div>
+
+
+    </form></p>
+</div></div>
+</body>
+</html>
+{% endblock %}

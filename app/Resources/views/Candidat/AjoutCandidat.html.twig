@@ -1,0 +1,116 @@
+{% extends 'auth/show.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body1 %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<head>
+
+    <link href="{{ asset('template./css/sb-admin-2.min.css') }}" type="text/css" rel="stylesheet"/>
+    <title>Gestion Auto-Ecole</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('template./vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template./https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet') }}">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+        .page {
+            width: 1024px;
+            position: relative;
+            left: 25%;
+            justify-content: center;
+            padding-right: 10%;
+        }
+        button.btn.btn-primary.btn-user.btn-block {
+            position: relative;
+
+            float: right;
+            display: block;
+            left: -37%;
+            top: -39px;
+            width: 100px;
+        }
+        h1{  color: #d62516}
+
+        .file{
+            height: 0;
+            overflow: hidden;
+            width: 0;
+        }
+
+        .file {
+            background: #f15d22;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: inherit;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            outline: none;
+            padding: 1rem 50px;
+            position: relative;
+            transition: all 0.3s;
+            vertical-align: middle;
+        }
+    </style>
+<body >
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Ajout Des Candidats</h6>
+    </div>
+<div class="page">
+
+    <form action="" method="post" enctype="multipart/form-data">
+
+
+
+        <p>
+        <div class="form-group row">
+            {{ form_row(form.Inscrioption, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-sm-6">
+            {{ form_row(form.Nom, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+
+        <div class="col-sm-6">
+            {{ form_row(form.Adresse, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_row(form.telephone, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_row(form.Email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="col-sm-6">
+            {{ form_row(form.file, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="" >
+            <button type="submit" class="btn btn-primary btn-user btn-block ">
+                <i class=""></i> Register
+            </button>
+        </div>
+        </p>
+
+    </form>
+</div></div>
+</body>
+
+{% endblock %}

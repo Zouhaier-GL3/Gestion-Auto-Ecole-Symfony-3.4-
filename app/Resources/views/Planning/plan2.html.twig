@@ -1,0 +1,97 @@
+{% extends 'auth/show2.html.twig' %}
+
+     {% block body2 %}
+     {{ parent() }}
+     {% endblock %}
+
+     {% block body3 %}
+<style>
+    table {
+           background-color: #C0C0C0;
+          }
+</style>
+     <!-- Breadcomb area Start-->
+         <div class="breadcomb-area">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <div class="breadcomb-list">
+                             <div class="row">
+                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                     <div class="breadcomb-wp">
+                                         <div class="breadcomb-icon">
+                                             <i class="notika-icon notika-windows"></i>
+                                         </div>
+                                         <div class="breadcomb-ctn">
+                                             <h2>Telecharger Formation</h2>
+                                             <p>Vous povez telecharger formation <span class="bread-ntd">Cliquez sur le button</span></p>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                                     <div class="breadcomb-report">
+                                         <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    <!-- Breadcomb area End-->
+    <!-- DataTales Example -->
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="breadcomb-list">
+
+
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="data-table-basic" class="table table-striped dataTable" role="grid" aria-describedby="data-table-basic_info">
+                    <thead>
+                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 189px;">Date Planning</th>
+                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" >Photo Candidat</th>
+                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Nom Candidat</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Nom Moniteur</th>
+
+                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Marqe Voiture</th>
+                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Serie Voiture</th>
+                    </tr>
+                    </thead>
+
+                    {% for Plan in planning %}
+                    <tr role="row" class="odd">
+                        <td>{{ Plan.date.date|date("d-m-Y")}}</td>
+                        <td><img src="{{ asset('images/' ~ Plan.candidat.file) }}" style=" border-radius: 50%; width: 60px;high:50px;"></td>
+                        <td>{{ Plan.candidat.nom}}</td>
+                        <td>{{ Plan.moniteur.nom }}</td>
+                        <td>{{ Plan.voiture.marque}}</td>
+                        <td>{{ Plan.voiture.serie}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- /.container-fluid -->
+
+{% endblock %}
+
+
+
+
+
+
+

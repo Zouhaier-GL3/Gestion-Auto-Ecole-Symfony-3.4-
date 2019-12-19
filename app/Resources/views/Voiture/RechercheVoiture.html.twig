@@ -1,0 +1,87 @@
+{% extends 'auth/show.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body1 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<head>
+
+    <link href="{{ asset('template./css/sb-admin-2.min.css') }}" type="text/css" rel="stylesheet"/>
+    <title>Gestion Auto-Ecole</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ asset('template./vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template./https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet') }}">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <style>
+
+        .page {
+            width: 1024px;
+            position: relative;
+            left: 10%;
+            justify-content: center;
+            padding-right: 10%;
+
+        }
+        h1{ text-align: center;  color: #d62516}
+        h2{ text-align: center;}
+        input{left: 15%}
+        button.btn.btn-primary.btn-user.btn-block {
+            position: relative;
+            top: -35px;
+            float: right;
+            display: block;
+            left: -21%;
+            width: 100px;
+        }
+    </style>
+<body >
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Recherche Par Marque</h6>
+    </div>
+    <div class="page">
+
+    <p><p><form method="post">
+    <input type="text" class="col-sm-6" name="Marque">
+    <div class="" >
+        <button type="submit" class="btn btn-primary btn-user btn-block ">
+            <i class=""></i> Chercher
+        </button>
+    </div>
+    </form></p></p>
+
+        <table border="1" class="table table-bordered dataTable" id="dataTable" width="100%"
+           cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+    <tr>
+
+        <td>Serie</td>
+        <td>DateMiseCirculation	</td>
+        <td>Marque</td>
+        <td>Supprimer</td>
+        <td>Modifier</td>
+    </tr>
+        {% for v in voiture %}
+            <tr>
+                <td>{{ v.Serie }}</td>
+                <td>{{ v.DateMiseCirculation }}</td>
+                <td>{{ v.Marque }}</td>
+                <td><a href="{{ path('supprimerV',{'id':v.id}) }}" class="btn btn-danger btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-trash"></i></samp><samp class="text">Supprimer</samp></a></td>
+                <td><a href="{{ path('modifierV',{'id':v.id}) }}" class="btn btn-success btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-info-circle" ></i></samp><samp class="text">Modifier</samp></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+</div>
+</body >
+{% endblock %}
