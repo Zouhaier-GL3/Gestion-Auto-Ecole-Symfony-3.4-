@@ -54,11 +54,10 @@ class Candidat
 
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Inscrioption", type="date")
+     * @Assert\DateTime
+     * @var string A "Y-m-d H:i:s" formatted value
      */
-    private $Inscrioption;
+    private $Date;
 
     /**
      * @var string
@@ -83,6 +82,7 @@ class Candidat
     {
         $this->Email = $Email;
     }
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Planning", mappedBy="candidat")
      * @ORM\JoinColumn(name="Candidat_nom",referencedColumnName="nom")
@@ -109,6 +109,33 @@ class Candidat
     {
         $this->plannings = $plannings;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Planning", mappedBy="candidat")
+     * @ORM\JoinColumn(name="Candidat_nom",referencedColumnName="nom")
+     */
+    private  $payment;
+
+    public function _construct(){
+        $this->payment=new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayment()
+    {
+        return $this->payment;
+    }
+
+    /**
+     * @param mixed $payment
+     */
+    public function setPayment($payment)
+    {
+        $this->payment = $payment;
+    }
+
 
     /**
      * Get id
@@ -234,23 +261,25 @@ class Candidat
         $this->telephone = $telephone;
     }
 
-
-
     /**
-     * @return string
+     * @return mixed
      */
-    public function getInscrioption()
+    public function getDate()
     {
-        return $this->Inscrioption;
+        return $this->Date;
     }
 
     /**
-     * @param string $Inscrioption
+     * @param mixed $Date
      */
-    public function setInscrioption($Inscrioption)
+    public function setDate($Date)
     {
-        $this->Inscrioption = $Inscrioption;
+        $this->Date = $Date;
     }
+
+
+
+
 
     /**
      * @return mixed

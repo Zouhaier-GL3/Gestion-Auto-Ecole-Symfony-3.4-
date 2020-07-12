@@ -14,14 +14,14 @@ class ListController extends Controller
      */
     public function showAction(Request $request)
     {
-        return $this->render('auth/show.html.twig');
+        return $this->render('auth/accueil.html.twig');
     }
     /**
      * @Route("/welcome2", name="welcome2")
      */
     public function show2Action(Request $request)
     {
-        return $this->render('auth/show2.html.twig');
+        return $this->render('auth/accueil2.html.twig');
     }
 
     /**

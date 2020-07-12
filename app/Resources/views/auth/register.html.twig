@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <head>
+
         <link href="{{ asset('template./css/sb-admin-2.min.css') }}" type="text/css" rel="stylesheet"/>
         <title>Gestion Auto-Ecole</title>
 
@@ -10,33 +10,52 @@
 
         <!-- Custom styles for this template-->
         <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    </head>
-    <style>
 
+    <style>
+        .login-box{
+            width: 800px;
+            height:5000px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            top: 417%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            box-sizing: border-box;
+            padding: 49px 32px;
+        }
         body {
 
-            justify-content: center;
-            padding: 10%;
+
+            background-image: url("{{ asset('template/img/raw.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: 1370px 750px;
+
         }
 
 
         button.btn.btn-primary.btn-user.btn-block {
             position: relative;
-            top: 12px;
+            top: 30px;
             float: right;
             display: block;
-            left: 1225%;
+            left:350%;
         }
 
     </style>
-    <div class="">
-        <div class="">
-            <div class="">
-                <div class="">
-                    <div class=""><h1>Register</h1></div>
+    <body>
+    <div class="login-box">
+    <head>
 
-                    <form class="user">
-                        <div class="form-group row">
+
+
+
+                    <div class=""><center><h1 style="font-family: Stencil Std, fantasy;">Inscription</h1></center></div>
+
+<p>
+                        <div class="">
+                            <form class="user">
+                                <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
                             </div>
@@ -54,11 +73,14 @@
 
                             <div class="" >
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    <i class=""></i> Register
+                                    <i class=""></i> Enregistrer
                                 </button>
                             </div>
 
                         {{ form_end(form) }}
-                    </div>
+                    </div></form>
+<p>
 
+    </head>
+    </div></body>
 {% endblock %}

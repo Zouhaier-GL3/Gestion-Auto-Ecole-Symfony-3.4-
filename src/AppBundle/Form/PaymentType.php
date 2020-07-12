@@ -2,22 +2,18 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Candidat;
-use AppBundle\Entity\Moniteur;
-use AppBundle\Entity\Voiture;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Entity\Candidat;
+use Doctrine\ORM\Mapping\Entity;
 use function Sodium\add;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
-
-
-class PlanningType extends AbstractType
+class PaymentType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -25,31 +21,21 @@ class PlanningType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class, ['widget' => 'single_text', 'format' => 'yyyy-MM-dd'])
-           ->add('Candidat',EntityType::class, array(
+            ->add('Candidat',EntityType::class, array(
                 'class' => 'AppBundle\Entity\Candidat',
                 'choice_label'=>'nom',
                 'expanded'=>false,
                 'multiple'=>false))
+            ->add('mantant')
+            ->add('date', DateType::class, ['widget' => 'single_text', 'format' => 'yyyy-MM-dd']);
 
-           ->add('Moniteur',EntityType::class, array(
-                'class' => 'AppBundle\Entity\Moniteur',
-                'choice_label'=>'nom',
-                'expanded'=>false,
-                'multiple'=>false))
-
-           ->add('Voiture',EntityType::class, array(
-                'class' => 'AppBundle\Entity\Voiture',
-                'choice_label'=>'marque',
-                'expanded'=>false,
-                'multiple'=>false));
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Planning'
+            'data_class' => 'AppBundle\Entity\Payment'
         ));
     }
 
@@ -58,7 +44,7 @@ class PlanningType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_planning';
+        return 'appbundle_payment';
     }
 
 

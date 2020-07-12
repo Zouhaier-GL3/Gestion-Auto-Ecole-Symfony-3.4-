@@ -14,7 +14,7 @@
 </head>
 <head>
 
-    <link href="{{ asset('template./css/sb-admin-2.min.css') }}" type="text/css" rel="stylesheet"/>
+    <link href="{{ asset('') }}" type="text/css" rel="stylesheet"/>
     <title>Gestion Auto-Ecole</title>
 
     <!-- Custom fonts for this template-->
@@ -78,8 +78,8 @@
 
 
         <p>
-        <div class="form-group row">
-            {{ form_row(form.Inscrioption, {'attr': {'class': 'form-control'}}) }}
+        <div class="col-sm-6">
+            {{ form_row(form.Date, {'attr': {'class': 'form-control'}}) }}
         </div>
         <div class="col-sm-6">
             {{ form_row(form.Nom, {'attr': {'class': 'form-control'}}) }}

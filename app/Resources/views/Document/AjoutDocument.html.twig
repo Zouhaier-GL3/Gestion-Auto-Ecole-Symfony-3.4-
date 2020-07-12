@@ -6,6 +6,7 @@
 
 {% block body1 %}
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="ISO-8859-1">
@@ -32,39 +33,58 @@
         }
         button.btn.btn-primary.btn-user.btn-block {
             position: relative;
-            top: -38px;
+
             float: right;
             display: block;
             left: -37%;
+            top: -39px;
             width: 100px;
         }
         h1{  color: #d62516}
+
+        .file{
+            height: 0;
+            overflow: hidden;
+            width: 0;
+        }
+
+        .file {
+            background: #f15d22;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: inherit;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            outline: none;
+            padding: 1rem 50px;
+            position: relative;
+            transition: all 0.3s;
+            vertical-align: middle;
+        }
     </style>
 <body >
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Ajout des Moniteur</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Ajout Documents PDF</h6>
     </div>
-<p><div class="page">
+<div class="page">
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
 
 
+
+        <p>
 
         <div class="col-sm-6">
-                {{ form_row(form.nom, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.titre, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="col-sm-6">
-            {{ form_row(form.adresse, {'attr': {'class': 'form-control'}}) }}
-        </div>
-
-        <div class="col-sm-6">
-            {{ form_row(form.telephone, {'attr': {'class': 'form-control'}}) }}
-        </div>
-
-        <div class="col-sm-6">
-            {{ form_row(form.Email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_row(form.file, {'attr': {'class': 'form-control'}}) }}
         </div>
 
         <div class="" >
@@ -72,9 +92,10 @@
                 <i class=""></i> Register
             </button>
         </div>
-
+        </p>
 
     </form>
-</div></div></p>
+</div></div>
 </body>
+
 {% endblock %}

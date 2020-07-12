@@ -1,11 +1,11 @@
-{% extends 'auth/show.html.twig' %}
-{% block body %}
+{% extends 'auth/show2.html.twig' %}
+{% block body2 %}
 
     {{ parent() }}
 
 {% endblock %}
 
-{% block body1 %}
+{% block body3 %}
 
     <head>
 
@@ -34,42 +34,35 @@
 <body>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Liste Des Candidats</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Liste Des Documents</h6>
         </div>
-        <div class="page">
+        <p><div class="page">
 
 
+
+            <a href="{{ 'https://www.codedelaroute.fr/cours/' }}" class="btn btn-success btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-info-circle" ></i></samp><samp class="text">Cours</samp></a>
+            <a href="{{ 'https://www.coderoute.com/test-code-de-la-route/' }}" class="btn btn-primary btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-flag" ></i></samp><samp class="text">Test</samp></a>
             <p><table border="1" class="table table-bordered dataTable" id="dataTable" width="100%"
                       cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
     <thead>
     <tr>
-        <td>Photo</td>
-        <td>Nom</td>
+        <td>Titre</td>
+        <td>PDF</td>
 
-        <td>Adresse</td>
-        <td>Date d'inscrioption </td>
-        <td>Telephone</td>
-        <td>Email</td>
-        <td>Supprimer</td>
-        <td>Modifier</td>
+
 
     </tr>
-    {% for cand in Candidat %}
+    {% for docs in Document %}
     <tr>
-        <td><img src="{{ asset('images/' ~ cand.file) }}" style=" border-radius: 50%; width: 60px;high:50px;"></td>
-        <td>{{ cand.Nom }}</td>
-        <td>{{ cand.Adresse }}</td>
-        <td>{{ cand.Date|date("d-m-Y")}}</td>
-        <td>{{ cand.Telephone }}</td>
-        <td>{{ cand.Email }}</td>
+        <td>{{ docs.titre }}</td>
+        <td><a href="{{ asset('images/' ~ docs.file) }}"  class="btn btn-warning btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-check"></i></samp><samp class="text">Telecharger</samp></a></td>
 
-        <td><a href="{{ path('supprimerC',{'id':cand.id}) }}" class="btn btn-danger btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-trash"></i></samp><samp class="text">Supprimer</samp></a></td>
-        <td><a href="{{ path('modifierC',{'id':cand.id}) }}" class="btn btn-success btn-icon-split"><samp class="icon text-white-50"><i class="fas fa-info-circle" ></i></samp><samp class="text">Modifier</samp></a></td>
     </tr>
     </thead>
     {% endfor %}
 
-</table></p>
+</table></p> </p>
+
 </div>
 </div>
 </body>

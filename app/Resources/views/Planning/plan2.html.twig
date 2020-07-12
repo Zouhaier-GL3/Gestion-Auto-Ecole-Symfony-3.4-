@@ -1,88 +1,61 @@
 {% extends 'auth/show2.html.twig' %}
 
-     {% block body2 %}
-     {{ parent() }}
-     {% endblock %}
+{% block body2 %}
+    {{ parent() }}
+{% endblock %}
 
-     {% block body3 %}
-<style>
-    table {
-           background-color: #C0C0C0;
-          }
-</style>
-     <!-- Breadcomb area Start-->
-         <div class="breadcomb-area">
-             <div class="container">
-                 <div class="row">
-                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                         <div class="breadcomb-list">
-                             <div class="row">
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                     <div class="breadcomb-wp">
-                                         <div class="breadcomb-icon">
-                                             <i class="notika-icon notika-windows"></i>
-                                         </div>
-                                         <div class="breadcomb-ctn">
-                                             <h2>Telecharger Formation</h2>
-                                             <p>Vous povez telecharger formation <span class="bread-ntd">Cliquez sur le button</span></p>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
-                                     <div class="breadcomb-report">
-                                         <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
-                                     </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
+{% block body3 %}
+    <!-- Breadcomb area Start-->
+    <h2 class="h3 mb-2 text-gray-800"></h2>
+
     <!-- Breadcomb area End-->
-    <!-- DataTales Example -->
-<div class="breadcomb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="breadcomb-list">
 
-
-
+    <!-- DataTables Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste Des Plannings</h6>
+        </div>
         <div class="card-body">
-            <div class="table-responsive">
-                <table id="data-table-basic" class="table table-striped dataTable" role="grid" aria-describedby="data-table-basic_info">
+            <!-- Topbar Search -->
+            <form method="post" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="datetime" name="date" class="form-control bg-light border-0 small"  aria-label="Search" >
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <p><div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 189px;">Date Planning</th>
-                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" >Photo Candidat</th>
-                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Nom Candidat</th>
+                    <tr>
+                        <th>Date Planning</th>
+                        <th>Photo Candidat</th>
+                        <th>Nom Candidat</th>
+                        <th>Nom Moniteur</th>
+                        <th>Marque voiture</th>
+                        <th>Serie voiture</th>
 
-                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Nom Moniteur</th>
-
-                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Marqe Voiture</th>
-                        <th class="sorting" tabindex="0" aria-controls="data-table-basic" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" >Serie Voiture</th>
                     </tr>
-                    </thead>
-
                     {% for Plan in planning %}
-                    <tr role="row" class="odd">
-                        <td>{{ Plan.date.date|date("d-m-Y")}}</td>
+                    <tr> <td>{{ Plan.date.date|date("d-m-Y")}}</td>
                         <td><img src="{{ asset('images/' ~ Plan.candidat.file) }}" style=" border-radius: 50%; width: 60px;high:50px;"></td>
                         <td>{{ Plan.candidat.nom}}</td>
                         <td>{{ Plan.moniteur.nom }}</td>
                         <td>{{ Plan.voiture.marque}}</td>
                         <td>{{ Plan.voiture.serie}}</td>
-                    </tr>
-                    {% endfor %}
 
+                    </thead>
+                    {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>
-    </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div></p>
 
 
     <!-- /.container-fluid -->
